@@ -1,0 +1,28 @@
+{
+	"name": "typescript-starter",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"private": true,
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "ts-node src/index.ts",
+		"dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
+		"typecheck": "tsc --noEmit",
+		"build": "tsc",
+		"format": "prettier --write src/**/*.ts"
+	},
+	"keywords": [],
+	"author": "",
+	"dependencies": {
+		"axios": "^1.6.7",
+		"dotenv": "^16.4.1"
+	},
+	"devDependencies": {
+		"@types/dotenv": "^8.2.0",
+		"@types/node": "^20.11.10",
+		"prettier": "^3.2.4",
+		"ts-node": "^10.8.2",
+		"typescript": "^5.3.3"
+	}
+}
