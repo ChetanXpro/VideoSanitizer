@@ -22,7 +22,7 @@
 		"@types/dotenv": "^8.2.0",
 		"@types/node": "^20.11.10",
 		"prettier": "^3.2.4",
-		"ts-node": "^10.8.2",
+		"ts-node": "^10.9.2",
 		"typescript": "^5.3.3"
 	}
 }
