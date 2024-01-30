@@ -1,6 +1,6 @@
 # VideoSanitizer
 
-VideoSanitizer is an intelligent video sanitization tool that automatically censors or mutes explicit content in video
+VideoSanitizer is an intelligent video sanitization tool that automatically censors or mutes explicit content in video with help of AI.
 
 ## Features
 
