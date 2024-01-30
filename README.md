@@ -38,3 +38,8 @@ Copy the .env.example file to .env and update it with your OpenAI API key.
 ```bash
 cp .env.example .env
 ```
+
+## Contributing
+
+As an open-source project in a rapidly developing field, we are extremely open to contributions, whether it would be in the form of a new feature, improved infrastructure, or better documentation.
+
