@@ -1,11 +1,9 @@
-import { OpenAI } from 'langchain/llms/openai'
-import { PromptTemplate } from 'langchain/prompts'
-
-import { LLMChain } from 'langchain/chains'
+import { OpenAI } from '@langchain/openai'
+import { PromptTemplate } from '@langchain/core/prompts'
 
 export const findCurseWordsTimestamp = async ({ srt_content }: { srt_content: string }) => {
 	try {
-		console.log('Creating Script...')
+		console.log('Finding curse words...')
 
 		const model = new OpenAI({
 			openAIApiKey: process.env.OPENAI_API,
@@ -22,6 +20,9 @@ export const findCurseWordsTimestamp = async ({ srt_content }: { srt_content: st
         
         !!!! Please note that you have to return timestamp of the curse word. not the curse word itself. !!!!
         !!!! Important: You have to return result in a parsable json format. !!!!
+
+        Example: an object with curse_words array. each element of curse_words array will have a object with key "start" and "end" with timestamp of the censor word.
+            
          
         `
 
@@ -33,47 +34,12 @@ export const findCurseWordsTimestamp = async ({ srt_content }: { srt_content: st
 
 		// console.log('Prompt: ', formattedPrompt)
 
-		const res = await model.invoke(formattedPrompt)
+		const res = (await model.invoke(formattedPrompt)) as any
 
-		console.log('res: ', res)
+		console.log('Curse words found at: ', JSON.parse(res).curse_words)
 
-		return
-
-		const chain = new LLMChain({ llm: model, prompt })
-
-		// if (!JSON.parse(res.text).script) throw new Error('Error in Script not generated')
-
-		// // console.log('Script: ', JSON.parse(res.text))
-
-		// return JSON.parse(res.text).script
+		return JSON.parse(res).curse_words
 	} catch (error) {
-		console.log('Error in createShortScript: ', error)
+		console.log('Error in LLm call: ', error)
 	}
 }
-// export const summarizeShortScript = async ({ script }: { script: string }) => {
-// 	try {
-// 		console.log('Script...')
-
-// 		const model = new OpenAI({
-// 			openAIApiKey: process.env.OPENAI_API,
-// 			temperature: 0.1,
-// 			modelName: 'gpt-4',
-// 		})
-
-// 		const prompt = PromptTemplate.fromTemplate(summary)
-
-// 		// console.log('Prompt: ', prompt)
-
-// 		const chain = new LLMChain({ llm: model, prompt })
-
-// 		const res = await chain.call({ script })
-
-// 		if (!JSON.parse(res.text).script) throw new Error('Error in Script not generated')
-
-// 		// console.log('Script: ', JSON.parse(res.text))
-
-// 		return JSON.parse(res.text).script
-// 	} catch (error) {
-// 		console.log('Error in createShortScript: ', error)
-// 	}
-// }

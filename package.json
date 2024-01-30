@@ -15,13 +15,17 @@
 	"keywords": [],
 	"author": "",
 	"dependencies": {
+		"@langchain/openai": "^0.0.13",
 		"axios": "^1.6.7",
 		"dotenv": "^16.4.1",
+		"fluent-ffmpeg": "^2.1.2",
 		"langchain": "^0.1.9",
-		"nodejs-whisper": "^0.1.6"
+		"nodejs-whisper": "^0.1.6",
+		"wavefile": "^11.0.0"
 	},
 	"devDependencies": {
 		"@types/dotenv": "^8.2.0",
+		"@types/fluent-ffmpeg": "^2.1.24",
 		"@types/node": "^20.11.10",
 		"prettier": "^3.2.4",
 		"ts-node": "^10.9.2",

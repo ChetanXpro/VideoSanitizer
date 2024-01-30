@@ -1,26 +1,46 @@
 import dotenv from 'dotenv'
 import { findCurseWordsTimestamp } from './services/ai.service'
 import { createTranscription } from './services/transcription.service'
+
 dotenv.config()
+import fs from 'fs'
+import { addBeepToVideo } from './services/editing.service'
 
 interface IArgs {
-	absolutePathToVideo: string
+	videoPath: string
+	outputVideoPath: string
+	beepAudioPath: string
+	srtFilePath: string
 }
 
-const run = async ({ absolutePathToVideo }: IArgs) => {
-	// TODO: Create .srt for given video
-	const createTranscriptionResult = await createTranscription(absolutePathToVideo)
-	console.log(createTranscriptionResult)
+interface ICurseWord {
+	curse_word: string
+	timestamp: string
+}
 
-	const srt_content = findCurseWordsTimestamp({
-		srt_content: 'Yoooo',
+const run = async ({ videoPath, outputVideoPath, beepAudioPath, srtFilePath }: IArgs) => {
+	// Create transcription and save it to a srt file
+	const createTranscriptionResult = await createTranscription(videoPath)
+
+	const content = fs.readFileSync(srtFilePath, 'utf8')
+
+	// Find curse words in the transcription with the help of AI
+	const curseWordList: any = await findCurseWordsTimestamp({
+		srt_content: content,
 	})
 
-	// TODO: Check in .srt if there are any bad words , and if exist then return them
-	// TODO: Create a new .srt file with bad words replaced with beep sound
-	// TODO: Add new .srt to video
+	// Add beep to the video
+	await addBeepToVideo({
+		curseWordList,
+		beepAudioPath: beepAudioPath,
+		editedVideoSavePath: outputVideoPath,
+		videoPath: videoPath,
+	})
 }
 
 run({
-	absolutePathToVideo: '/Users/chetan/Developer/code/video-scanner/sample.mp4',
+	videoPath: '/Users/chetan/Developer/code/video-scanner/video/sample.mp4',
+	beepAudioPath: '/Users/chetan/Developer/code/video-scanner/assets/bleep-censorship-sound.mp3',
+	outputVideoPath: '/Users/chetan/Developer/code/video-scanner/video/censored-sample.mp4',
+	srtFilePath: '/Users/chetan/Developer/code/video-scanner/video/sample.wav.srt',
 })
