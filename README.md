@@ -14,7 +14,7 @@ VideoSanitizer is an intelligent video sanitization tool that automatically cens
 ### Prerequisites
 
 - [FFmpeg](https://ffmpeg.org/) installed on your system.
-- An API key for OpenAI , which is used for curse word detection.
+- An API key of OpenAI, which is used for curse word detection.
 
 ### Installation
 
