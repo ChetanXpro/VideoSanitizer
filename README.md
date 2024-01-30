@@ -18,14 +18,14 @@ VideoSanitizer is an intelligent video sanitization tool that automatically cens
 
 ### Installation
 
-1. Clone the repository:
+Clone the repository:
 
 ```bash
 git clone https://github.com/chetanxpro/VideoSanitizer.git
 cd VideoSanitizer
 ```
 
-2. Install dependencies:
+Install dependencies:
 
 ```bash
 npm install
