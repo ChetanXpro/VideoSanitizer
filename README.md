@@ -24,3 +24,17 @@ Clone the repository:
 git clone https://github.com/chetanxpro/VideoSanitizer.git
 cd VideoSanitizer
 ```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+### Configuration
+
+Copy the .env.example file to .env and update it with your OpenAI API key.
+
+```bash
+cp .env.example .env
+```
