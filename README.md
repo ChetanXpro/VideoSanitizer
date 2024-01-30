@@ -1,11 +1,11 @@
 # VideoSanitizer
 
-VideoSanitizer is a tool designed to sanitize videos by automatically censoring or muting specific content within defined intervals. It utilizes AI to create a transcript of the video, extracts timestamps of curse words, and uses FFmpeg to add beep sounds at those identified places.
+VideoSanitizer is an intelligent video sanitization tool that automatically censors or mutes explicit content in video
 
 ## Features
 
-- **Automatic Transcription**: Utilizes AI to generate a transcript of the input video.
-- **Curse Word Detection**: Employs AI to extract timestamps of curse words from the transcript.
+- **Automatic Transcription**: Utilizes NodeJS Bindings for OpenAI whisper model ([Nodejs Bindings](https://github.com/ChetanXpro/nodejs-whisper)) to generate a transcript of the input video. 
+- **Curse Word Detection**: Use AI to extract timestamps of curse words from the transcript.
 - **Dynamic Beeping**: Adds beep sounds to curse words at identified timestamps using FFmpeg.
 - **Easy Integration**: Simple to use with a clear command-line interface.
 
@@ -14,7 +14,7 @@ VideoSanitizer is a tool designed to sanitize videos by automatically censoring 
 ### Prerequisites
 
 - [FFmpeg](https://ffmpeg.org/) installed on your system.
-- An API key for the AI service used for automatic transcription and curse word detection.
+- An API key for OpenAI , which is used for curse word detection.
 
 ### Installation
 
