@@ -19,7 +19,7 @@
 		"axios": "^1.6.7",
 		"dotenv": "^16.4.4",
 		"fluent-ffmpeg": "^2.1.2",
-		"langchain": "^0.1.20",
+		"langchain": "^0.1.21",
 		"nodejs-whisper": "^0.1.10",
 		"wavefile": "^11.0.0"
 	},
