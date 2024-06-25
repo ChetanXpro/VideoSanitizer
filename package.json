@@ -15,7 +15,7 @@
 	"keywords": [],
 	"author": "",
 	"dependencies": {
-		"@langchain/openai": "^0.1.2",
+		"@langchain/openai": "^0.2.0",
 		"axios": "^1.7.2",
 		"dotenv": "^16.4.5",
 		"fluent-ffmpeg": "^2.1.3",
