@@ -26,7 +26,7 @@
 	"devDependencies": {
 		"@types/dotenv": "^8.2.0",
 		"@types/fluent-ffmpeg": "^2.1.25",
-		"@types/node": "^22.2.0",
+		"@types/node": "^22.4.1",
 		"prettier": "^3.3.3",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.5.4"
